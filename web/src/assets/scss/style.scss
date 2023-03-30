@@ -1,0 +1,104 @@
+@import "./variables";
+
+* {
+  box-sizing: border-box;
+  outline: none;
+  touch-action: none;
+}
+html {
+  font-size: 13px;
+}
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.2rem;
+  background: #f1f1f1;
+  -webkit-font-smoothing: antialiased;
+}
+a {
+  color: #999;
+}
+p {
+  line-height: 1.5rem;
+}
+// width,height
+.w-100 {
+  width: 100%;
+}
+.h-100 {
+  height: 100%;
+}
+
+// flex
+.d-flex {
+  display: flex;
+}
+.flex-column {
+  flex-direction: column;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+// nav
+.nav {
+  display: flex;
+
+  .nav-item {
+    border-bottom: 3px solid transparent;
+    padding-bottom: 0.2rem;
+
+    &.active {
+      color: map-get($colors, "primary");
+      border-bottom: 3px solid map-get($colors, "primary");
+    }
+  }
+  &.nav-inverse {
+    .nav-item {
+      color: map-get($colors, "white");
+    }
+    &.active {
+      border-bottom: 3px solid map-get($colors, "white");
+    }
+  }
+}
+
+// button
+.btn {
+  border: none;
+  border-radius: 0.1538rem;
+  font-size: map-get($map: $font-sizes, $key: "sm") * $base-font-size;
+  padding: 0.2rem 0.6rem;
+}
+
+// sprite
+.sprite {
+  background: url(../img/index.png) no-repeat 0 0;
+  background-size: 28.8462rem;
+  display: inline-block;
+
+  &.sprite-news {
+    width: 1.7692rem;
+    height: 1.538rem;
+    background-position: -224px -67px;
+  }
+  &.sprite-arrow {
+    width: 0.7692rem;
+    height: 0.7692rem;
+    background-position: -141px -232px;
+  }
+}
+
+// text overflow
+.text-ellipsis {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+// borders
+@each $dir in (top, right, bottom, left) {
+  .border-#{$dir} {
+    border-#{$dir}: 1px solid $border-color;
+  }
+}
